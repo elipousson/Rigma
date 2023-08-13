@@ -7,7 +7,8 @@
 req_rigma_agent(
   req,
   token = NULL,
-  user_agent = "Rigma https://github.com/AleKoure/Rigma"
+  user_agent = "Rigma https://github.com/AleKoure/Rigma",
+  call = caller_env()
 )
 }
 \arguments{

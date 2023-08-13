@@ -21,13 +21,11 @@
 req_rigma_agent <- function(
     req,
     token = NULL,
-    user_agent = "Rigma https://github.com/AleKoure/Rigma"
+    user_agent = "Rigma https://github.com/AleKoure/Rigma",
+    call = caller_env()
 ) {
   assert_class(req, "httr2_request")
-  figma_token <- token %||%
-    Sys.getenv(
-      getOption("Rigma.figma_token", "FIGMA_ACCESS_TOKEN")
-    )
+  figma_token <- get_figma_token(token, call = call)
 
   assert_string(figma_token, min.chars = 1)
 
